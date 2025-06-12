@@ -4,6 +4,8 @@ pragma solidity ^0.8.20;
 interface IERC20 {
     function transferFrom(address from, address to, uint amount) external returns (bool);
     function transfer(address to, uint amount) external returns (bool);
+    function balanceOf(address owner) external view returns (uint);
+    function allowance(address owner, address spender) external view returns (uint);
 }
 
 contract Marketplace {
@@ -64,6 +66,8 @@ contract Marketplace {
         Product storage product = products[_id];
         require(_id > 0 && _id <= productCount, "Invalid id");
         require(!product.sold, "Already sold");
+        require(token.balanceOf(msg.sender) >= product.price, "Insufficient balance");
+        require(token.allowance(msg.sender, address(this)) >= product.price, "Allowance too low");
         require(token.transferFrom(msg.sender, address(this), product.price), "Payment failed");
         product.sold = true;
         product.buyer = msg.sender;
