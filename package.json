@@ -1,0 +1,13 @@
+{
+  "name": "first_dapp",
+  "version": "1.0.0",
+  "description": "This is a very simple decentralized application where users can sell second hand items. Users connect with an Ethereum wallet (e.g. MetaMask) and can list items for sale. Other users can browse listings, filter by category and price, and purchase items.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"No tests specified\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
