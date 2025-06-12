@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Second Hand Marketplace</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .product { border: 1px solid #ccc; padding: 10px; margin: 10px 0; }
+    .filters { margin-bottom: 20px; }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.7.0/dist/ethers.min.js"></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <h1>Second Hand Marketplace</h1>
+  <button id="connect">Connect Wallet</button>
+
+  <h2>Add Product</h2>
+  <form id="productForm">
+    <input id="name" placeholder="Name" required /> <br />
+    <input id="image" placeholder="Image URL" required /> <br />
+    <textarea id="description" placeholder="Description"></textarea> <br />
+    <input id="category" placeholder="Category" required /> <br />
+    <input id="price" placeholder="Price in token" required type="number" step="0.01"/> <br />
+    <button type="submit">Add</button>
+  </form>
+
+  <div class="filters">
+    <input id="filterCategory" placeholder="Filter by category" />
+    <input id="filterPrice" type="number" placeholder="Max price" step="0.01" />
+    <button id="applyFilters">Apply Filters</button>
+  </div>
+
+  <div id="products"></div>
+
+  <h2>Pending Transactions</h2>
+  <div id="transactions"></div>
+</body>
+</html>
